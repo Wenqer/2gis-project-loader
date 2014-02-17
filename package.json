@@ -1,7 +1,7 @@
 {
   "name": "2gis-project-loader",
   "description": "Helper for load and parse 2gis web api projects",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/wenqer/2gis-project-loader",
   "author": {
     "name": "Iaroslav Voloshchuk",
@@ -21,10 +21,6 @@
     }
   ],
   "main": "lib/2gis-project-loader",
-  "bin": "bin/2gis-project-loader",
-  "engines": {
-    "node": ">= 0.10.0"
-  },
   "scripts": {
     "test": "gulp test"
   },
