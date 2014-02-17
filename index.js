@@ -24,10 +24,8 @@ function wktToBnd(wkt) {
     northEast = pointsArr[2].split(' ');
 
     return [
-        parseFloat(southWest[1]),
-        parseFloat(southWest[0]),
-        parseFloat(northEast[1]),
-        parseFloat(northEast[0])
+        [parseFloat(southWest[1]), parseFloat(southWest[0])],
+        [parseFloat(northEast[1]), parseFloat(northEast[0])]
     ];
 }
 
