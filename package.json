@@ -21,16 +21,16 @@
     }
   ],
   "main": "lib/2gis-project-loader",
-  
-      "bin": "bin/2gis-project-loader",
-    
-    "engines": {
-      "node": ">= 0.10.0"
+  "bin": "bin/2gis-project-loader",
+  "engines": {
+    "node": ">= 0.10.0"
   },
   "scripts": {
     "test": "gulp test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "request": "~2.33.0"
+  },
   "devDependencies": {
     "mocha": "~1.10.0",
     "chai": "~1.8.0",
