@@ -1,3 +1,4 @@
+/*jshint ignore:start*/
 /*
  * 2gis-project-loader
  * https://github.com/wenqer/2gis-project-loader
@@ -12,12 +13,22 @@ var chai = require('chai');
 chai.expect();
 chai.should();
 
-var 2gis-project-loader = require('../lib/2gis-project-loader.js');
+var loader = require('../index.js');
 
-describe('2gis-project-loader module', function(){
-  describe('#awesome()', function(){
-    it('should return a hello', function(){
-      2gis-project-loader.awesome('livia').should.equal("hello livia");
-    });
-  });
+describe('2gis-project-loader module', function(done){
+	it('should return fileds', function(done){
+		loader(function(err, projects) {
+			Object.keys(projects[0]).should.eql([
+				'code',
+				'minZoom',
+				'maxZoom',
+				'timeOffset',
+				'traffic',
+				'bound'
+			]);
+			done();
+		});
+	});
 });
+
+/*jshint ignore:end*/

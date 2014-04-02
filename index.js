@@ -1,8 +1,18 @@
 'use strict';
 var request = require('request');
 
-var url = 'http://catalog.api.2gis.ru/2.0/search?key=rujrdp3400&fields=data.bound%2Cdata.max_zoom_level%2Cdata.min_zoom_level%2Cdata.time_zone%2Cdata.time_zone_as_offset%2Cdata.code&type=project&lang=all';
+var fields = [
+    'bound',
+    'max_zoom_level',
+    'min_zoom_level',
+    'time_zone_as_offset',
+    'code',
+    'has_traffic'
+].map(function (param) {
+    return 'data.' + param;
+}).join('%2C');
 
+var url = 'http://catalog.api.2gis.ru/2.0/search?key=rujrdp3400&fields=' + fields + '&type=project&lang=all';
 
 function wktToBnd(wkt) {
     var arr,
@@ -36,6 +46,7 @@ function parse(item) {
         minZoom: item.min_zoom_level,
         maxZoom: item.max_zoom_level,
         timeOffset: item.time_zone_as_offset,
+        traffic: item.has_traffic,
         bound: wktToBnd(item.bound)
     };
 }
