@@ -51,10 +51,14 @@ function parse(item) {
     };
 }
 
+function isNull(project) {
+    return project.bound !== null;
+}
+
 function load(cb) {
     request(url, function (err, resp, body) {
         var data = JSON.parse(body);
-        cb(err, data.result.data.map(parse));
+        cb(err, data.result.data.filter(isNull).map(parse));
     });
 }
 
